@@ -149,6 +149,7 @@ namespace Calculator.Models.MakeAnExpression
                 case BasicMathOperations.Multiply: return " × ";
                 case BasicMathOperations.Division: return " ÷ ";
                 case BasicMathOperations.ModuleDivision: return " % ";
+                case BasicMathOperations.PartOfTheWhole: return " ₓ ";
 
             }
 

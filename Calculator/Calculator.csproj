@@ -64,6 +64,7 @@
     <Compile Include="Models\Calculation\Operations\ArithmeticOperations\ModuleDivision.cs" />
     <Compile Include="Models\Calculation\Operations\ArithmeticOperations\Multiply.cs" />
     <Compile Include="Models\Calculation\Operations\ArithmeticOperations\Negation.cs" />
+    <Compile Include="Models\Calculation\Operations\ArithmeticOperations\PartOfTheWhole.cs" />
     <Compile Include="Models\Calculation\Operations\Base\BinaryOperation.cs" />
     <Compile Include="Models\Calculation\Operations\Base\Number.cs" />
     <Compile Include="Models\Calculation\Operations\Base\UnaryOperation.cs" />

@@ -29,5 +29,45 @@ namespace Calculator.Views
         {
 
         }
+
+        private void Button_Click_Pad_Memory(object sender, RoutedEventArgs e)
+        {
+            if (MemoruGrid.Visibility == Visibility.Hidden)
+            {
+                MemoruGrid.Visibility = Visibility.Visible;
+                MemoryClear.IsEnabled = false;
+                MemoryRead.IsEnabled = false;
+                MemoryPlus.IsEnabled = false;
+                MemoryMinus.IsEnabled = false;
+                MemorySave.IsEnabled = false;
+            }
+            else
+            {
+                MemoruGrid.Visibility = Visibility.Hidden;
+                MemoryClear.IsEnabled = true;
+                MemoryRead.IsEnabled = true;
+                MemoryPlus.IsEnabled = true;
+                MemoryMinus.IsEnabled = true;
+                MemorySave.IsEnabled = true;
+            }
+        }
+
+        private void InitializeComponentMemoryClear(object sender, RoutedEventArgs e)
+        {
+            MemoryClear.IsEnabled = false;
+            MemoryRead.IsEnabled = false;
+            MemoryPad.IsEnabled = false;
+            MemoryPlus.IsEnabled = true;
+            MemoryMinus.IsEnabled = true;
+            MemorySave.IsEnabled = true;
+            MemoruGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void InitializeComponentMemory(object sender, RoutedEventArgs e)
+        {
+            MemoryClear.IsEnabled = true;
+            MemoryRead.IsEnabled = true;
+            MemoryPad.IsEnabled = true;
+        }
     }
 }

@@ -74,6 +74,19 @@ namespace Calculator.ViewModels
             }
         }
 
+
+        public double CurrentValue
+        {
+            get
+            {
+                return memory.CurrentValue;
+            }
+            set
+            {
+                OnPropertyChanged(nameof(CurrentValue));
+            }
+        }
+
         #endregion
 
         #region Commands
@@ -281,6 +294,7 @@ namespace Calculator.ViewModels
         {
             CurrentNumber = currentData.CurrentNumber;
             CurrentExpression = currentData.CurrentExpression;
+            CurrentValue = memory.CurrentValue;
         }
         #endregion
 
@@ -303,6 +317,40 @@ namespace Calculator.ViewModels
             #endregion
 
             #region Create commands
+
+            #region Commands for memory operations
+
+            MemorySaveCommand = new RelayCommand(() =>
+            {
+                memory.MemorySave(CurrentNumber);
+                UpdateMainProperties();
+            });
+
+            MemoryClearCommand = new RelayCommand(() =>
+            {
+                memory.MemoryClear();
+                UpdateMainProperties();
+            });
+
+            MemoryReadCommand = new RelayCommand(() =>
+            {
+                memory.MemoryRead(CurrentNumber);
+                UpdateMainProperties();
+            });
+
+            MemoryPlusCommand = new RelayCommand(() =>
+            {
+                memory.MemoryPlus(CurrentNumber);
+                UpdateMainProperties();
+            });
+
+            MemoryMinusCommand = new RelayCommand(() =>
+            {
+                memory.MemoryMinus(CurrentNumber);
+                UpdateMainProperties();
+            });
+
+            #endregion
 
             #region Commands for clearing data
 
@@ -328,36 +376,52 @@ namespace Calculator.ViewModels
 
             #region Commands for basic math operations
 
+            /// <summary>
+            /// Adds a "+" operation to the current expression
+            /// </summary>
             AdditionCommand = new RelayParameterizedCommand((obj) =>
-            {  //throw new NotImplementedException();                                 // Метод добавления "+"
+            {  //throw new NotImplementedException();                               
                 expressionFormation.SetBasicMathOperation(BasicMathOperations.Addition);
                 UpdateMainProperties();
             }, (obj) => NumberStandardization.NumberCheck(currentData.CurrentNumber));
 
+            /// <summary>
+            /// Adds a "-" operation to the current expression
+            /// </summary>
             SubtractionCommand = new RelayParameterizedCommand((obj) =>
-            {                                                                       // Метод Отнимания "-"
+            {                                                                  
                 expressionFormation.SetBasicMathOperation(BasicMathOperations.Subtraction);
                 UpdateMainProperties();
             }, (obj) => NumberStandardization.NumberCheck(currentData.CurrentNumber));
 
+            /// <summary>
+            /// Adds a "*" operation to the current expression
+            /// </summary>
             MultiplyCommand = new RelayParameterizedCommand((obj) =>
-            {                                                                      // Метод Множення "*"
+            {
                 expressionFormation.SetBasicMathOperation(BasicMathOperations.Multiply);
                 UpdateMainProperties();
             }, (obj) => NumberStandardization.NumberCheck(currentData.CurrentNumber));
 
+            /// <summary>
+            /// Adds a "/" operation to the current expression
+            /// </summary>
             DivisionCommand = new RelayParameterizedCommand((obj) => {
-                // Метод процента "/"
                 expressionFormation.SetBasicMathOperation(BasicMathOperations.Division);
                 UpdateMainProperties();
             });
 
+            /// <summary>
+            /// Adds a "%" operation to the current expression
+            /// </summary>
             ModuleDivisionCommand = new RelayParameterizedCommand((obj) => {
-                // Метод процента "%"
                 expressionFormation.SetBasicMathOperation(BasicMathOperations.ModuleDivision);
                 UpdateMainProperties();
             }, (obj) => NumberStandardization.NumberCheck(currentData.CurrentNumber));
 
+            /// <summary>
+            /// Adds a "=" operation to the current expression
+            /// </summary>
             EqualCommand = new RelayParameterizedCommand((obj) =>
             {
                 expressionFormation.SetBasicMathOperation(BasicMathOperations.Equal);
@@ -369,17 +433,11 @@ namespace Calculator.ViewModels
             #region Commands for math operations
 
 
-            FindPercentageCommand = new RelayParameterizedCommand((obj) =>
-            {  //throw new NotImplementedException();                                 
-                //expressionFormation.SetBasicMathOperation(BasicMathOperations.Addition);
-               // UpdateMainProperties();
-            }, (obj) => NumberStandardization.NumberCheck(currentData.CurrentNumber));
-
             /// <summary>
             /// Adds a "1/x" operation to the current expression
             /// </summary>
             PartOfTheWholeCommand = new RelayParameterizedCommand((obj) =>
-            {                                                                       
+            {
                 expressionFormation.SetBasicMathOperation(BasicMathOperations.PartOfTheWhole);
                 UpdateMainProperties();
             }, (obj) => NumberStandardization.NumberCheck(currentData.CurrentNumber));
