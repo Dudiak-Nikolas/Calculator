@@ -108,6 +108,10 @@ namespace Calculator.Models.Calculation
                 {
                     result = new Division(result, ParsingAnExpression_HighPriority());
                 }
+                /*else if(MatchSearch('¹'))
+                {
+                    result = new PartOfTheWhole(result, ParsingAnExpression_HighPriority());
+                }*/
                 else
                 {
                     return result;

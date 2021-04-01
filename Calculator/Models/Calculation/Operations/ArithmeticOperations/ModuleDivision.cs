@@ -8,7 +8,7 @@ namespace Calculator.Models.Calculation.Operations.ArithmeticOperations
 
         public override double Operation()
         {
-            return leftArg.Operation() * rightArg.Operation() / 100;
+            return (double)leftArg.Operation() % (double)rightArg.Operation();
         }
     }
 }

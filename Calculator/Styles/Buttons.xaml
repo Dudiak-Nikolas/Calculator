@@ -160,6 +160,41 @@
         </Style.Triggers>
     </Style>
 
+    <!--MemoryGeneralButtonStile-->
+    <Style x:Key="MemoryGeneralButtonStile" BasedOn="{StaticResource BaseButtonStyle}" TargetType="Button">
+        <Style.Setters>
+            <Setter Property="Background" Value="{StaticResource MemoryButton.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource MemoryButton.Static.Border}"/>
+
+            <Setter Property="FontFamily" Value="Microsoft JhengHei"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Background" Value="{StaticResource MemoryButton.Disabled.Background}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource MemoryButton.Disabled.Border}"/>
+                <Setter Property="TextElement.Foreground" Value="{StaticResource MemoryButton.Disabled.Foreground}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MemoryButtonStyle2" BasedOn="{StaticResource BaseButtonStyle}" TargetType="Button">
+        <Style.Setters>
+            <Setter Property="Background" Value="{StaticResource NumberButton.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource NumberButton.Static.Border}"/>
+
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Microsoft JhengHei UI"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Background" Value="{StaticResource NumberButton.Disabled.Background}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource NumberButton.Disabled.Border}"/>
+                <Setter Property="TextElement.Foreground" Value="{StaticResource NumberButton.Disabled.Foreground}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
     <!--Number button style-->
     <Style x:Key="NumberButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="Button">
         <Style.Setters>

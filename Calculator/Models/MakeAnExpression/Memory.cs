@@ -57,6 +57,11 @@
             MemoryIsEmpty = false;
         }
 
+        public void MemoryRead(string currentNumber)
+        {
+            MemoryIsEmpty = false;
+        }
+
         #endregion
     }
 }
