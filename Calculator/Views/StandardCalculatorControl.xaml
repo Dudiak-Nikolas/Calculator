@@ -65,6 +65,7 @@
                     Background="{StaticResource CurrentNumber.Static.Background}"/>
             </Viewbox>
         </Grid>
+        
         <!--Keyboard-->
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -103,6 +104,7 @@
                     <Button x:Name="MemoryPad" Content="M^" Grid.Column="5" Grid.Row="0" Click="Button_Click_Pad_Memory" IsEnabled="False"/>
                 </Grid>
             </Grid>
+            
             <!--Memory storage-->
             <Grid Grid.Row="2" x:Name="MemoruGrid" Background="{StaticResource ToopTip.Static.Background}" Panel.ZIndex="1" Visibility="Hidden">
                 <Grid.RowDefinitions>
@@ -181,7 +183,6 @@
                 <Button Content="‒" Command="{Binding SubtractionCommand}" Grid.Column="3" Grid.Row="3" Style="{StaticResource ArithmeticOperationButtonStyle}" Margin="1,1,1,1"/>
                 <Button Content="+" Command="{Binding AdditionCommand}" Grid.Column="3" Grid.Row="4" Style="{StaticResource ArithmeticOperationButtonStyle}" Margin="1,1,1,1"/>
                 <Button Content="=" Command="{Binding EqualCommand}" Grid.Column="3" Grid.Row="5" Style="{StaticResource ResultButtonStyle}" Margin="1,1,1,1"/>
-                <Button Content="," Command="{Binding CommaCommand}" Grid.Column="2" Grid.Row="5" RenderTransformOrigin="1.932,0.591" Margin="1,1,1,1"/>
                 <!--#endregion -->
 
                 <!--Number pad-->
@@ -210,6 +211,7 @@
                     <Button Content="8" Command="{Binding DigitEightCommand}" Grid.Column="1" Grid.Row="0"/>
                     <Button Content="9" Command="{Binding DigitNineCommand}" Grid.Column="2" Grid.Row="0"/>
                     <Button Content="+/-" Command="{Binding InvertNumberCommand}" Grid.Column="0" Grid.Row="3"/>
+                    <Button Content="," Command="{Binding CommaCommand}" Grid.Column="2" Grid.Row="5" Margin="1,1,1,1"/>
                 </Grid>
             </Grid>
         </Grid>

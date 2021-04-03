@@ -74,7 +74,9 @@ namespace Calculator.ViewModels
             }
         }
 
-
+        /// <summary>
+        /// To show the current memory on the display
+        /// </summary>
         public double CurrentValue
         {
             get
@@ -380,7 +382,7 @@ namespace Calculator.ViewModels
             /// Adds a "+" operation to the current expression
             /// </summary>
             AdditionCommand = new RelayParameterizedCommand((obj) =>
-            {  //throw new NotImplementedException();                               
+            {                              
                 expressionFormation.SetBasicMathOperation(BasicMathOperations.Addition);
                 UpdateMainProperties();
             }, (obj) => NumberStandardization.NumberCheck(currentData.CurrentNumber));
@@ -432,7 +434,6 @@ namespace Calculator.ViewModels
 
             #region Commands for math operations
 
-
             /// <summary>
             /// Adds a "1/x" operation to the current expression
             /// </summary>
@@ -459,7 +460,6 @@ namespace Calculator.ViewModels
                 expressionFormation.SetBasicMathOperation(BasicMathOperations.Sqrt);
                 UpdateMainProperties();
             }, (obj) => NumberStandardization.NumberCheck(currentData.CurrentNumber));
-
 
             #endregion
 
