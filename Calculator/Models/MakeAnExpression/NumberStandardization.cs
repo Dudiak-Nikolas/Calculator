@@ -28,6 +28,19 @@ namespace Calculator.Models.MakeAnExpression
             return number;
         }
 
+        public static string StandardizationSqr(string number)
+        {
+            number = decimal.Parse(number).ToString();
+            number = ConvertingRealNumbers(number);
+
+            if (number.IndexOf('-') != 1)
+            {
+               number = '(' + number + ')';
+            }
+
+            return number;
+        }
+
         /// <summary>
         /// To check if the current number is a number
         /// </summary>

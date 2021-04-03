@@ -104,7 +104,7 @@ namespace Calculator.Models.Calculation
                 {
                     result = new ModuleDivision(result, ParsingAnExpression_HighPriority());
                 }
-                else if(MatchSearch('/')|| MatchSearch('÷'))
+                else if(MatchSearch('÷'))
                 {
                     result = new Division(result, ParsingAnExpression_HighPriority());
                 }
@@ -134,6 +134,30 @@ namespace Calculator.Models.Calculation
             if (MatchSearch('-'))
             {
                 result = new Negation(ParsingAnExpression_LowPriority());
+            }
+            else if (MatchSearch('√'))
+            {
+                result = new Sqrt(ParsingAnExpression_LowPriority());
+            }
+            else if (MatchSearch('¹'))
+            {
+                result = ParsingAnExpression_LowPriority();
+            }
+            else if (MatchSearch('/'))
+            {
+                result = new PartOfTheWhole(ParsingAnExpression_LowPriority());
+            }
+            else if (MatchSearch('S'))
+            {
+                result = new Sqr(ParsingAnExpression_LowPriority());
+            }
+            else if (MatchSearch('q'))
+            {
+                result = ParsingAnExpression_LowPriority();
+            }
+            else if (MatchSearch('r'))
+            {
+                result = ParsingAnExpression_LowPriority();
             }
             else if (MatchSearch('('))
             {

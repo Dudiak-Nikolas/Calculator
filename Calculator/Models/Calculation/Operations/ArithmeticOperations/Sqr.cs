@@ -1,14 +1,15 @@
 ﻿using Calculator.Models.Calculation.Operations.Base;
+using System;
 
 namespace Calculator.Models.Calculation.Operations.ArithmeticOperations
 {
-    class PartOfTheWhole : UnaryOperation
+    public class Sqr : UnaryOperation
     {
-        public PartOfTheWhole(UniversalOperation PartOfTheWhole) : base(PartOfTheWhole) { }
+        public Sqr(UniversalOperation sqr) : base(sqr) { }
 
         public override double Operation()
         {
-            return 1 / arg.Operation();
+            return Math.Pow(arg.Operation(),2);
         }
     }
 }

@@ -35,7 +35,14 @@ namespace Calculator.Models.MakeAnExpression
             }
 
             currentData.CurrentExpression = NewCurrentExpression(pressedOperation);
-            currentData.CurrentNumber = pressedOperation == BasicMathOperations.Equal ? calculate.Calc(currentData.CurrentExpression).ToString() : clearData.ClearNumber(currentData.CurrentNumber);
+            if(pressedOperation == BasicMathOperations.Equal)
+                currentData.CurrentNumber = pressedOperation == BasicMathOperations.Equal ? calculate.Calc(currentData.CurrentExpression).ToString() : clearData.ClearNumber(currentData.CurrentNumber);
+            else if (pressedOperation == BasicMathOperations.Sqr)
+                currentData.CurrentNumber = pressedOperation == BasicMathOperations.Sqr ? calculate.Calc(currentData.CurrentExpression).ToString() : clearData.ClearNumber(currentData.CurrentNumber);
+            else if (pressedOperation == BasicMathOperations.Sqrt)
+                currentData.CurrentNumber = pressedOperation == BasicMathOperations.Sqrt ? calculate.Calc(currentData.CurrentExpression).ToString() : clearData.ClearNumber(currentData.CurrentNumber);
+            else if(pressedOperation == BasicMathOperations.PartOfTheWhole)
+                currentData.CurrentNumber = pressedOperation == BasicMathOperations.PartOfTheWhole ? calculate.Calc(currentData.CurrentExpression).ToString() : clearData.ClearNumber(currentData.CurrentNumber);
 
             if (double.IsNaN(double.Parse(currentData.CurrentNumber)) || double.IsPositiveInfinity(double.Parse(currentData.CurrentNumber)) || 
                 double.IsNegativeInfinity(double.Parse(currentData.CurrentNumber)))
@@ -66,6 +73,18 @@ namespace Calculator.Models.MakeAnExpression
             if (buttonsState.EqualBtnPressed && (pressedOperation == BasicMathOperations.Equal) && Common.MathSignCheck(currentData.CurrentExpression))
             {
                 return NumberStandardization.Standardization(currentData.CurrentNumber) + CopyLastOperation(currentData.CurrentExpression.Remove(currentData.CurrentExpression.Length - 3, 3)) + SetSelectedBasicMathOperation(pressedOperation);
+            }
+            else if (pressedOperation == BasicMathOperations.Sqr)
+            {
+                return SetSelectedBasicMathOperation(pressedOperation) + NumberStandardization.StandardizationSqr(currentData.CurrentNumber);
+            }
+            else if (pressedOperation == BasicMathOperations.Sqrt)
+            {
+                return SetSelectedBasicMathOperation(pressedOperation) + NumberStandardization.StandardizationSqr(currentData.CurrentNumber);
+            }
+            else if (pressedOperation == BasicMathOperations.PartOfTheWhole)
+            {
+                return SetSelectedBasicMathOperation(pressedOperation) + NumberStandardization.StandardizationSqr(currentData.CurrentNumber);
             }
             else if (buttonsState.NumberPadBtnPressed)
             {
@@ -149,7 +168,9 @@ namespace Calculator.Models.MakeAnExpression
                 case BasicMathOperations.Multiply: return " × ";
                 case BasicMathOperations.Division: return " ÷ ";
                 case BasicMathOperations.ModuleDivision: return " % ";
-                case BasicMathOperations.PartOfTheWhole: return " ₓ ";
+                case BasicMathOperations.PartOfTheWhole: return " ¹/ ";
+                case BasicMathOperations.Sqr: return " Sqr ";
+                case BasicMathOperations.Sqrt: return " √ ";
 
             }
 
